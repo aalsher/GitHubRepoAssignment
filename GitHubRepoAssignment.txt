@@ -1,0 +1,226 @@
+Last login: Fri Jul 28 21:39:25 on ttys000
+Fifis-MacBook-Pro:~ fifihome$ cd Desktop
+Fifis-MacBook-Pro:Desktop fifihome$ mkdir gittest
+Fifis-MacBook-Pro:Desktop fifihome$ cd gittest
+Fifis-MacBook-Pro:gittest fifihome$ git init
+Initialized empty Git repository in /Users/fifihome/Desktop/gittest/.git/
+Fifis-MacBook-Pro:gittest fifihome$ touch index.html styles.css AboutMe.txt
+Fifis-MacBook-Pro:gittest fifihome$ git add
+Nothing specified, nothing added.
+Maybe you wanted to say 'git add .'?
+Fifis-MacBook-Pro:gittest fifihome$ git add .
+Fifis-MacBook-Pro:gittest fifihome$ git commit -m "updated AboutMe"
+[master (root-commit) 9c91399] updated AboutMe
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 AboutMe.txt
+ create mode 100644 index.html
+ create mode 100644 styles.css
+Fifis-MacBook-Pro:gittest fifihome$ pico AboutMe.txt
+Fifis-MacBook-Pro:gittest fifihome$ git commit -m "Added favorite movie"
+On branch master
+Changes not staged for commit:
+	modified:   AboutMe.txt
+
+no changes added to commit
+Fifis-MacBook-Pro:gittest fifihome$ git add .
+Fifis-MacBook-Pro:gittest fifihome$ git commit -m "Added favorite movie"
+[master 15938f8] Added favorite movie
+ 1 file changed, 1 insertion(+)
+Fifis-MacBook-Pro:gittest fifihome$ git log
+commit 15938f81b2c786faac9141857d4f6b0450897e4f
+Author: aalsher <amina.alsherif@gmail.com>
+Date:   Sat Jul 29 09:52:39 2017 -0400
+
+    Added favorite movie
+
+commit 9c913999339c4f957de76bc77133092c06054e2e
+Author: aalsher <amina.alsherif@gmail.com>
+Date:   Sat Jul 29 09:51:07 2017 -0400
+
+    updated AboutMe
+Fifis-MacBook-Pro:gittest fifihome$ git revert -h
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <n>    parent number
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Fifis-MacBook-Pro:gittest fifihome$ git revert
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <n>    parent number
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Fifis-MacBook-Pro:gittest fifihome$ git revert AboutMe.txt
+fatal: bad revision 'AboutMe.txt'
+Fifis-MacBook-Pro:gittest fifihome$ git revert -n
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <n>    parent number
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Fifis-MacBook-Pro:gittest fifihome$ git revert -n
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <n>    parent number
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Fifis-MacBook-Pro:gittest fifihome$ git revert <commit>
+-bash: syntax error near unexpected token `newline'
+Fifis-MacBook-Pro:gittest fifihome$ revert <9c913999339c4f957de76bc77133092c06054e2e>
+-bash: syntax error near unexpected token `newline'
+Fifis-MacBook-Pro:gittest fifihome$ revert 9c913999339c4f957de76bc77133092c06054e2e
+-bash: revert: command not found
+Fifis-MacBook-Pro:gittest fifihome$ revert HEAD 9c913999339c4f957de76bc77133092c06054e2e
+-bash: revert: command not found
+Fifis-MacBook-Pro:gittest fifihome$ reset HEAD 9c913999339c4f957de76bc77133092c06054e2e
+Usage: reset [options] [terminal]
+
+Options:
+  -c          set control characters
+  -e ch       erase character
+  -I          no initialization strings
+  -i ch       interrupt character
+  -k ch       kill character
+  -m mapping  map identifier to type
+  -Q          do not output control key settings
+  -r          display term on stderr
+  -s          output TERM set command
+  -V          print curses-version
+  -w          set window-size
+
+Fifis-MacBook-Pro:gittest fifihome$ git revert 9c913999339c4f957de76bc77133092c06054e2e
+error: could not revert 9c91399... updated AboutMe
+hint: after resolving the conflicts, mark the corrected paths
+hint: with 'git add <paths>' or 'git rm <paths>'
+hint: and commit the result with 'git commit'
+Fifis-MacBook-Pro:gittest fifihome$ git revert 15938f81b2c786faac9141857d4f6b0450897e4f
+error: Reverting is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: revert failed
+Fifis-MacBook-Pro:gittest fifihome$ git reset 15938f81b2c786faac9141857d4f6b0450897e4f
+Unstaged changes after reset:
+D	index.html
+D	styles.css
+Fifis-MacBook-Pro:gittest fifihome$ touch index.html styles.css
+Fifis-MacBook-Pro:gittest fifihome$ git commit -m "brought them back after screwing up"
+On branch master
+nothing to commit, working tree clean
+Fifis-MacBook-Pro:gittest fifihome$ git add .
+Fifis-MacBook-Pro:gittest fifihome$ git commit -m "brought them back after screwing up"
+On branch master
+nothing to commit, working tree clean
+Fifis-MacBook-Pro:gittest fifihome$ git reset --hard
+HEAD is now at 15938f8 Added favorite movie
+Fifis-MacBook-Pro:gittest fifihome$ git revert HEAD 15938f8
+[master c11ca38] Revert  Took out favorite movie This reverts commit 15938f81b2c786faac9141857d4f6b0450897e4f.
+ 1 file changed, 1 deletion(-)
+Fifis-MacBook-Pro:gittest fifihome$ pico AboutMe.txt
+Fifis-MacBook-Pro:gittest fifihome$ cd Desktop
+-bash: cd: Desktop: No such file or directory
+Fifis-MacBook-Pro:gittest fifihome$ cd ../
+Fifis-MacBook-Pro:Desktop fifihome$ touch LearningToCommit.txt
+Fifis-MacBook-Pro:Desktop fifihome$ pico
+Fifis-MacBook-Pro:Desktop fifihome$ clear
+
+Fifis-MacBook-Pro:Desktop fifihome$ git init
+Initialized empty Git repository in /Users/fifihome/Desktop/.git/
+Fifis-MacBook-Pro:Desktop fifihome$ git reset
+Fifis-MacBook-Pro:Desktop fifihome$ git remote add origin https://github.com/aalsher/CodingProgression.git
+Fifis-MacBook-Pro:Desktop fifihome$ git push origin master
+error: src refspec master does not match any.
+error: failed to push some refs to 'https://github.com/aalsher/CodingProgression.git'
+Fifis-MacBook-Pro:Desktop fifihome$ git remote
+origin
+Fifis-MacBook-Pro:Desktop fifihome$ git remove origin
+git: 'remove' is not a git command. See 'git --help'.
+
+Did you mean this?
+	remote
+Fifis-MacBook-Pro:Desktop fifihome$ git remote remove origin
+Fifis-MacBook-Pro:Desktop fifihome$ git remote
+Fifis-MacBook-Pro:Desktop fifihome$ git remote add CodingProgression https://github.com/aalsher/CodingProgression.git
+Fifis-MacBook-Pro:Desktop fifihome$ git push origin master
+error: src refspec master does not match any.
+error: failed to push some refs to 'origin'
+Fifis-MacBook-Pro:Desktop fifihome$ git push CodingProgression master
+error: src refspec master does not match any.
+error: failed to push some refs to 'https://github.com/aalsher/CodingProgression.git'
+Fifis-MacBook-Pro:Desktop fifihome$ cd ../
+Fifis-MacBook-Pro:~ fifihome$ cd Desktop
+Fifis-MacBook-Pro:Desktop fifihome$ mkdir GitHubRepoAssignment
+Fifis-MacBook-Pro:Desktop fifihome$ cd GitHubRepoAssignment
+Fifis-MacBook-Pro:GitHubRepoAssignment fifihome$ git init
+Initialized empty Git repository in /Users/fifihome/Desktop/GitHubRepoAssignment/.git/
+Fifis-MacBook-Pro:GitHubRepoAssignment fifihome$ touch readme.md
+Fifis-MacBook-Pro:GitHubRepoAssignment fifihome$ pico
+Fifis-MacBook-Pro:GitHubRepoAssignment fifihome$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	readme.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+Fifis-MacBook-Pro:GitHubRepoAssignment fifihome$ git add .
+Fifis-MacBook-Pro:GitHubRepoAssignment fifihome$ git commit -m "My first GitHub push"
+[master (root-commit) 9eda124] My first GitHub push
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.md
+Fifis-MacBook-Pro:GitHubRepoAssignment fifihome$ 
+
